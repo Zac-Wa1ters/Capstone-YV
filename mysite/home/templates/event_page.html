@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h1>{{ page.title }}</h1>
+
+    <p>Date: {{page.event_date }} </p>
+    <p>Time: {{ page.event_time }}</p>
+    <p>Location: {{ page.event_location }}</p>
+    {% if page.ticket_price %}
+        <p>Admission Cost: ${{ page.ticket_price }}</p>
+    {% endif %}
+
+    <div>
+        <p>{{ page.event_description|richtext }} </p>
+    </div>
+
+
+{% if page.tickets_available and page.tickets_available > 0 %}
+     <a href="#" class="button">
+                Buy Tickets
+            </a>
+{% else %}
+    <p>This event is Sold Out.</p>
+{% endif %}
+
+
+{% endblock %}
