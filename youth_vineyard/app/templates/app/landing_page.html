@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<div class="landing-page">
+
+    <section class="title-section">
+        {% if page.title_text %}
+            <h1 class="landing-title">{{ page.title_text }}</h1>
+        {% else %}
+            <h1 class="landing-title">{{ page.title }}</h1>
+        {% endif %}
+
+        {% if page.quote %}
+            <p class="landing-quote">{{ page.quote }}</p>
+        {% endif %}
+
+        {% if page.main_image %}
+            {% image page.main_image fill-1400x700 as main_img %}
+            <img src="{{ main_img.url }}" alt="{{ page.title_text|default:page.title }}" class="main-image">
+        {% endif %}
+    </section>
+
+    <section class="gallery-section">
+        {% if page.preview_header %}
+            <h2 class="section-header">{{ page.preview_header }}</h2>
+        {% endif %}
+
+        <div class="preview-row">
+            {% if page.preview_image_1 %}
+                {% image page.preview_image_1 fill-400x300 as preview1 %}
+                <img src="{{ preview1.url }}" alt="Preview image 1" class="preview-image">
+            {% endif %}
+
+            {% if page.preview_image_2 %}
+                {% image page.preview_image_2 fill-400x300 as preview2 %}
+                <img src="{{ preview2.url }}" alt="Preview image 2" class="preview-image">
+            {% endif %}
+
+            {% if page.preview_image_3 %}
+                {% image page.preview_image_3 fill-400x300 as preview3 %}
+                <img src="{{ preview3.url }}" alt="Preview image 3" class="preview-image">
+            {% endif %}
+        </div>
+
+        {% if page.gallery_button_text and page.gallery_button_link %}
+            <div class="button-wrap">
+                <a href="{{ page.gallery_button_link }}" class="page-button">
+                    {{ page.gallery_button_text }}
+                </a>
+            </div>
+        {% endif %}
+    </section>
+
+    <section class="more-info-section">
+        <div class="more-info-content">
+            <div class="more-info-text">
+                {% if page.more_info_header %}
+                    <h2 class="section-header">{{ page.more_info_header }}</h2>
+                {% endif %}
+
+                {% if page.more_info_text %}
+                    {{ page.more_info_text|richtext }}
+                {% endif %}
+
+                {% if page.info_button_text and page.info_button_link %}
+                    <div class="button-wrap left-align">
+                        <a href="{{ page.info_button_link }}" class="page-button">
+                            {{ page.info_button_text }}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="more-info-image-wrap">
+                {% if page.more_info_image %}
+                    {% image page.more_info_image fill-700x500 as info_img %}
+                    <img src="{{ info_img.url }}" alt="{{ page.more_info_header }}" class="more-info-image">
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

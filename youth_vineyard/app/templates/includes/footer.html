@@ -1,0 +1,19 @@
+<footer class="site-footer">
+    <div class="footer-container">
+        {% if site_footer %}
+            <div class="footer-text">
+                {{ site_footer.footer_text|safe }}
+            </div>
+
+            {% if site_footer.contact_link %}
+                <p>
+                    <a href="{{ site_footer.contact_link }}">
+                        {{ site_footer.contact_text|default:"Contact" }}
+                    </a>
+                </p>
+            {% endif %}
+        {% else %}
+            <p>Footer not set yet.</p>
+        {% endif %}
+    </div>
+</footer>
