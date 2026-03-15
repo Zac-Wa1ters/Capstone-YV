@@ -1,0 +1,33 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<nav class="navbar">
+    <div class="nav-container">
+
+        
+{% load wagtailcore_tags wagtailimages_tags %}
+
+        <a class="brand" href="/">
+            {% if site_branding and site_branding.logo %}
+                {% image site_branding.logo fill-60x60 as logo_img %}
+                <img src="{{ logo_img.url }}" alt="{{ site_branding.organization_name }}" class="logo">
+            {% endif %}
+            <span class="brand-name">
+                {% if site_branding %}
+                    {{ site_branding.organization_name }}
+                {% else %}
+                    Youth Vineyard
+                {% endif %}
+            </span>
+        </a>
+
+
+        <ul class="nav-links">
+            {% for menu_page in site.root_page.get_children.live.in_menu %}
+                <li>
+                    <a href="{% pageurl menu_page %}">{{ menu_page.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</nav>

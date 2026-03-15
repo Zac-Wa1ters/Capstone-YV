@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+<h1>{{ page.title }}</h1>
+
+{% if page.product_image %}
+    {% image page.product_image fill-600x400 %}
+{% endif %}
+
+<p>Price: ${{ page.price }}</p>
+
+<div>
+    {{ page.description|richtext }}
+</div>
+
+{% if page.inventory and page.inventory > 0 %}
+
+<button class="button">
+    Add to Cart
+</button>
+
+{% else %}
+
+<p>Out of Stock</p>
+
+{% endif %}
+
+{% endblock %}
