@@ -71,6 +71,7 @@ class AboutPage(Page):
     founder_bio = RichTextField()
     mission_statement = RichTextField()
     mentalhealth_services = RichTextField()
+    donate = RichTextField()
 
     content_panels = Page.content_panels + [
         FieldPanel("hero_title"),
@@ -78,7 +79,8 @@ class AboutPage(Page):
         FieldPanel("organization_story"),
         FieldPanel("founder_bio"),
         FieldPanel("mission_statement"),
-        FieldPanel("mentalhealth_services")
+        FieldPanel("mentalhealth_services"),
+        FieldPanel("donate")
     ]
 
 
