@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2m%zb5_)+junnqznk==w!4*$b62d4k%@4q3n9)yi7j5!ovms0w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'nondilatable-overmournfully-shawana.ngrok-free.dev']
 
 
 # Application definition
@@ -146,3 +146,10 @@ WAGTAIL_SITE_NAME = 'The Youth Vineyard'
 WAGTAILADMIN_BASE_URL = 'http://example.com'
 
 WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'txt', 'xlsx', 'zip']
+
+# settings.py
+PUBLIC_BASE_URL = "https://nondilatable-overmournfully-shawana.ngrok-free.dev"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://nondilatable-overmournfully-shawana.ngrok-free.dev",
+]
