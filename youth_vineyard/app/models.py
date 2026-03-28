@@ -13,8 +13,6 @@ from wagtail.contrib.settings.models import BaseSiteSetting, register_setting
 
 from django import forms
 
-class HomePage(Page):
-     subpage_types = ["app.LandingPage"]
 
 @register_setting
 class SnipcartSettings(BaseSiteSetting):
@@ -247,7 +245,6 @@ class StoreIndexPage(Page):
 
 
 class LandingPage(Page):
-    parent_page_types = ["app.HomePage"]
     
     title_text = models.CharField(max_length=250, blank=True)
     quote = models.CharField(max_length=250, blank=True)
