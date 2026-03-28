@@ -156,7 +156,7 @@ class GalleryImagePage(Orderable):
 
     panels = [FieldPanel('image')]
 
-class GalleryVideoPage(Page):
+class GalleryVideoPage(Orderable):
     page = ParentalKey(
         'GalleryEventPage',
         on_delete = models.CASCADE,
